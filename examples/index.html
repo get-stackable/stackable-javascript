@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Stackable Javascript</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+<body>
+<h1>Hello, world!</h1>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<script src="../dist/stackable-javascript.js"></script>
+
+<script>
+    var stackable = new Stackable('BPGhLf9D9FEM');
+    stackable.getContainers(function (error, result) {
+        console.log(error, result);
+    });
+
+    stackable.getContainer('SamPnREY7zjq6i4od', function (error, result) {
+        console.log(error, result);
+    });
+
+    stackable.getContainerItems('SamPnREY7zjq6i4od', function (error, result) {
+        console.log(error, result);
+    });
+
+    stackable.getAllItem(function (error, result) {
+        console.log(error, result);
+    });
+
+    stackable.getItem('dZmr4nw6h4jyqDB7c', function (error, result) {
+        console.log(error, result);
+    });
+</script>
+</body>
+</html>
