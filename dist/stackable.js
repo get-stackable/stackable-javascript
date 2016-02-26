@@ -128,4 +128,4 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ ])
 });
 ;
-//# sourceMappingURL=stackable-javascript.js.map
+//# sourceMappingURL=stackable.js.map

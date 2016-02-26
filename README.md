@@ -21,7 +21,7 @@ bower install stackable --save
 Include Stackable file in your project
 
 ```html
-<script src="dist/stackable-javascript.min.js"></script>
+<script src="dist/stackable.min.js"></script>
 ```
 
 ## Usage
@@ -89,4 +89,4 @@ Sources files are located in `src` directory
 
 ## Todo
 
-- write tests
+- Write tests.
