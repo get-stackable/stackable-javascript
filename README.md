@@ -1,6 +1,8 @@
 # Stackable Javascript Library
 
-Official Stackable API library for Javascript.
+This is the Official Stackable API Javascript library for getting data from stacks.
+
+Available and Support both `Browser` and `NodeJs`.
 
 Working example found in `examples` directory
 
@@ -28,10 +30,12 @@ Include Stackable file in your project
 
 ## Usage
 
+Make sure to create an account at [http://ui.stackable.com](http://ui.stackable.com) and setup your Stack and Containers.
+
 To initialize
 
 ```js
-var stackable = new Stackable('YOUR-PUBLIC-KEY-HERE');
+var stackable = new Stackable('YOUR-STACK-PUBLIC-KEY-HERE');
 ```
 
 To list all containers
@@ -98,3 +102,4 @@ npm install
 ## Todo
 
 - Write tests.
+- POST webhooks to containers
