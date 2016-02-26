@@ -1,8 +1,10 @@
 # Stackable Javascript Library
 
-Official Stackable library for Javascript.
+Official Stackable API library for Javascript.
 
 Working example found in `examples` directory
+
+In browser `jQuery` is required.
 
 ## Install
 
@@ -75,6 +77,12 @@ stackable.getItem('ITEM-ID-HERE', function (error, result) {
 ## To build (development)
 
 Sources files are located in `src` directory
+
+Run npm install to  setup required libraries.
+
+```
+npm install
+```
 
 ### npm Scripts
 

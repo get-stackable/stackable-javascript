@@ -65,7 +65,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    _classCallCheck(this, Stackable);
 	
 	    this._token = token;
-	    this._apiUrl = 'http://api.stackable.space/v1/';
+	    this._apiVersion = 'v1';
+	    this._apiUrl = 'http://api.stackable.space';
 	  }
 	
 	  _createClass(Stackable, [{
@@ -106,16 +107,35 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: '_get',
 	    value: function _get(path, callback) {
-	      $.ajax({
-	        url: this._apiUrl + path + '?token=' + this._token,
-	        context: document.body,
-	        success: function success(result) {
-	          callback(null, result);
-	        },
-	        error: function error(err) {
-	          callback(err, null);
-	        }
-	      });
+	      var endPoint = this._apiUrl + '/' + this._apiVersion + '/' + path + '?token=' + this._token;
+	
+	      if (typeof window === 'undefined') {
+	        //is node
+	        fetch(endPoint).then(function (response) {
+	          if (response.status >= 400) {
+	            var err = {
+	              'message': 'There was an error with this request.'
+	            };
+	            return callback(err, false);
+	          }
+	
+	          return response.json();
+	        }).then(function (response) {
+	          return callback(false, response);
+	        });
+	      } else {
+	        //is browser
+	        $.ajax({
+	          url: endPoint,
+	          context: document.body,
+	          success: function success(response) {
+	            callback(false, response);
+	          },
+	          error: function error(err) {
+	            callback(err, false);
+	          }
+	        });
+	      }
 	    }
 	  }]);
 	

@@ -1,7 +1,8 @@
 class Stackable {
   constructor(token) {
     this._token = token;
-    this._apiUrl = 'http://api.stackable.space/v1/';
+    this._apiVersion = 'v1';
+    this._apiUrl = 'http://api.stackable.space';
   }
 
   getContainers(callback) {
@@ -35,16 +36,37 @@ class Stackable {
   }
 
   _get(path, callback) {
-    $.ajax({
-      url: this._apiUrl + path + '?token=' + this._token,
-      context: document.body,
-      success: function(result) {
-        callback(null, result);
-      },
-      error: function(err) {
-        callback(err, null);
-      }
-    });
+    let endPoint = `${this._apiUrl}/${this._apiVersion}/${path}?token=${this._token}`;
+
+    if (typeof window === 'undefined') {
+      //is node
+      fetch(endPoint)
+        .then(function(response) {
+          if (response.status >= 400) {
+            let err = {
+              'message': 'There was an error with this request.'
+            };
+            return callback(err, false);
+          }
+
+          return response.json();
+        })
+        .then(function(response) {
+          return callback(false, response);
+        });
+    } else {
+      //is browser
+      $.ajax({
+        url: endPoint,
+        context: document.body,
+        success: function(response) {
+          callback(false, response);
+        },
+        error: function(err) {
+          callback(err, false);
+        }
+      });
+    }
   }
 }
 
