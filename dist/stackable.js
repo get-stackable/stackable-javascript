@@ -91,8 +91,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	      });
 	    }
 	  }, {
-	    key: 'getAllItem',
-	    value: function getAllItem(callback) {
+	    key: 'getAllItems',
+	    value: function getAllItems(callback) {
 	      this._get('items', function (err, res) {
 	        callback(err, res);
 	      });

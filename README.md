@@ -65,7 +65,7 @@ stackable.getContainerItems('CONTAINER-ID-HERE', function (error, result) {
 To get all items within stack
 
 ```js
-stackable.getAllItem(function (error, result) {
+stackable.getAllItems(function (error, result) {
     console.log(error, result);
 });
 ```

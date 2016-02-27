@@ -23,7 +23,7 @@ class Stackable {
     });
   }
 
-  getAllItem(callback) {
+  getAllItems(callback) {
     this._get(`items`, function(err, res) {
       callback(err, res);
     });
