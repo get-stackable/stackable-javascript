@@ -4,7 +4,7 @@ This is the Official Stackable API Javascript library for getting data from stac
 
 Available and Support both `Browser` and `NodeJs`.
 
-Working example found in `examples` directory
+Working example found in `examples` directory + added `AngularJs` example!
 
 In browser `jQuery` is required.
 
