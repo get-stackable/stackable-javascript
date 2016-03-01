@@ -2,13 +2,13 @@
 
 This is the Official Stackable API Javascript library for getting data from stacks.
 
-Available and Support both `Browser` and `NodeJs`.
+Available and Support in both `Browser` and `NodeJs`.
 
 Working examples are found in `examples` directory!
 
 - [Vanilla Javascript Example](examples/index.html)
 - [AngularJs Example](examples/index-angular.html)
-- [ReactJs](examples/index-react.html)
+- [ReactJs Example](examples/index-react.html)
 
 In browser `jQuery` is required.
 
