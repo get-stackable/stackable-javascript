@@ -4,7 +4,11 @@ This is the Official Stackable API Javascript library for getting data from stac
 
 Available and Support both `Browser` and `NodeJs`.
 
-Working example found in `examples` directory + added `AngularJs` example!
+Working examples are found in `examples` directory!
+
+- [Vanilla Javascript Example](examples/index.html)
+- [AngularJs Example](examples/index-angular.html)
+- [ReactJs](examples/index-react.html)
 
 In browser `jQuery` is required.
 
@@ -103,3 +107,4 @@ npm install
 
 - Write tests.
 - POST webhooks to containers
+- Nodejs example
