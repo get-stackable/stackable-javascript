@@ -14,19 +14,23 @@
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-<script src="../dist/stackable.min.js"></script>
+<script src="../dist/stackable.js"></script>
 
 <script type="application/javascript">
+    var dummyContainerId = 'Q4taPL8PsTRwbgiQ7';
+    var dummyItemId = '56de21217ac104c6bef2ddf5';
+
     var stackable = new Stackable('BPGhLf9D9FEM');
+
     stackable.getContainers(function (error, result) {
         console.log(error, result);
     });
 
-    stackable.getContainer('SamPnREY7zjq6i4od', function (error, result) {
+    stackable.getContainer(dummyContainerId, function (error, result) {
         console.log(error, result);
     });
 
-    stackable.getContainerItems('SamPnREY7zjq6i4od', function (error, result) {
+    stackable.getContainerItems(dummyContainerId, function (error, result) {
         console.log(error, result);
     });
 
@@ -34,7 +38,15 @@
         console.log(error, result);
     });
 
-    stackable.getItem('dZmr4nw6h4jyqDB7c', function (error, result) {
+    stackable.getItem(dummyItemId, function (error, result) {
+        console.log(error, result);
+    });
+
+    stackable.createItem(dummyContainerId, {title: 'My first item'}, function (error, result) {
+        console.log(error, result);
+    });
+
+    stackable.updateItem(dummyItemId, {title: 'Update my first item'}, function (error, result) {
         console.log(error, result);
     });
 </script>

@@ -2,7 +2,8 @@ class Stackable {
   constructor(token) {
     this._token = token;
     this._apiVersion = 'v1';
-    this._apiUrl = 'http://api.stackable.space';
+    //this._apiUrl = 'http://api.stackable.space';
+    this._apiUrl = 'http://localhost:3030';
   }
 
   getContainers(callback) {
@@ -82,8 +83,20 @@ class Stackable {
     }
   }
 
-  _post(path, data, callback) {
+  _post(path, params, data, callback) {
     let endPoint = `${this._apiUrl}/${this._apiVersion}/${path}?token=${this._token}`;
+
+    var paramsStr = '';
+    for (var key in params) {
+      if (paramsStr != '') {
+        paramsStr += '&';
+      }
+      paramsStr += key + '=' + encodeURIComponent(params[key]);
+    }
+
+    if (paramsStr.length > 0) {
+      endPoint = endPoint + '&' + paramsStr;
+    }
 
     if (typeof window === 'undefined') {
       //is node //todo
@@ -118,20 +131,8 @@ class Stackable {
     }
   }
 
-  _put(path, params, data, callback) {
+  _put(path, data, callback) {
     let endPoint = `${this._apiUrl}/${this._apiVersion}/${path}?token=${this._token}`;
-
-    var paramsStr = "";
-    for (var key in params) {
-      if (paramsStr != "") {
-        paramsStr += "&";
-      }
-      paramsStr += key + "=" + encodeURIComponent(params[key]);
-    }
-
-    if (paramsStr.length > 0) {
-      endPoint = endPoint + '&' + paramsStr;
-    }
 
     if (typeof window === 'undefined') {
       //is node

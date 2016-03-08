@@ -82,6 +82,38 @@ stackable.getItem('ITEM-ID-HERE', function (error, result) {
 });
 ```
 
+To create new item
+
+- First initialize, using PRIVATE KEY, (MAKE SURE YOU KEEP THIS KEY SAFE! MOSTLY ON SERVER SIDE)
+
+```js
+var stackable = new Stackable('YOUR-STACK-PRIVATE-KEY-HERE');
+```
+
+```js
+var dataToPost = {
+    name: 'John Doe',
+    age: 29
+};
+
+stackable.createItem('CONTAINER-ID-HERE', dataToPost, function (error, result) {
+    console.log(error, result);
+});
+```
+
+To update an item
+
+```js
+var dataToUpdate = {
+    name: 'John Doe',
+    age: 29
+};
+
+stackable.updateItem('ITEM-ID-HERE', dataToUpdate, function (error, result) {
+    console.log(error, result);
+});
+```
+
 ## To build (development)
 
 Sources files are located in `src` directory
@@ -106,5 +138,5 @@ npm install
 ## Todo
 
 - Write tests.
-- POST webhooks to containers
+- Test with Nodejs App
 - Nodejs example
