@@ -126,14 +126,7 @@ npm install
 
 ### npm Scripts
 
-- `npm test` - Lint the library and tests, then run the unit tests
-- `npm run lint` - Lint the source and unit tests
-- `npm run watch` - Continuously run the unit tests as you make changes to the source
-   and test files themselves
-- `npm run test-browser` - Build the library for use with the browser spec runner.
-  Changes to the source will cause the runner to automatically refresh.
 - `npm run build` - Lint then build the library
-- `npm run coverage` - Generate a coverage report
 
 ## Todo
 
