@@ -137,6 +137,4 @@ npm install
 
 ## Todo
 
-- Write tests.
-- Test with Nodejs App
-- Nodejs example
+- Write tests
