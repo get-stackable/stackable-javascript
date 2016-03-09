@@ -2,8 +2,7 @@ class Stackable {
   constructor(token) {
     this._token = token;
     this._apiVersion = 'v1';
-    //this._apiUrl = 'http://api.stackable.space';
-    this._apiUrl = 'http://localhost:3030';
+    this._apiUrl = 'http://api.stackable.space';
   }
 
   getContainers(callback) {
