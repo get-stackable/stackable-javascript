@@ -24,7 +24,7 @@ class Stackable {
   }
 
   getAllItems(callback) {
-    this._get(`items`, function(err, res) {
+    this._get('items', function(err, res) {
       callback(err, res);
     });
   }
@@ -36,7 +36,7 @@ class Stackable {
   }
 
   createItem(containerId, data, callback) {
-    this._post(`items`, {containerId}, data, function(err, res) {
+    this._post('items', {containerId}, data, function(err, res) {
       callback(err, res);
     });
   }
