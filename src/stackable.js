@@ -52,6 +52,7 @@ class Stackable {
 
     if (typeof window === 'undefined') {
       //is node
+      const fetch = require('node-fetch');
       fetch(endPoint)
         .then(function(response) {
           if (response.status >= 400) {
@@ -98,7 +99,8 @@ class Stackable {
     }
 
     if (typeof window === 'undefined') {
-      //is node //todo
+      //is node
+      const fetch = require('node-fetch');
       fetch(endPoint, {method: 'POST', body: data})
         .then(function(response) {
           if (response.status >= 400) {
@@ -135,6 +137,7 @@ class Stackable {
 
     if (typeof window === 'undefined') {
       //is node
+      const fetch = require('node-fetch');
       fetch(endPoint, {method: 'PUT', body: data})
         .then(function(response) {
           if (response.status >= 400) {

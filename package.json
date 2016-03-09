@@ -58,5 +58,8 @@
   "babelBoilerplateOptions": {
     "entryFileName": "stackable",
     "mainVarName": "Stackable"
+  },
+  "dependencies": {
+    "node-fetch": "^1.3.3"
   }
 }
