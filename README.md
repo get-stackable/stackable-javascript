@@ -23,7 +23,7 @@ npm install stackable --save
 Or bower, too.
 
 ```
-bower install stackable --save
+bower install get-stackable --save
 ```
 
 Include Stackable file in your project

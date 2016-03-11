@@ -1,5 +1,6 @@
 {
-  "name": "stackable",
+  "name": "get-stackable",
+  "version": "1.2.0",
   "description": "Official Stackable API Javascript library for getting data from stack",
   "main": "dist/stackable-min.js",
   "authors": [
