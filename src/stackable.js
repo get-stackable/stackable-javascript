@@ -170,4 +170,6 @@ class Stackable {
   }
 }
 
-module.exports = Stackable;
+if (typeof window !== 'undefined') {
+  module.exports = Stackable;
+}
