@@ -186,4 +186,6 @@ var Stackable = function () {
   return Stackable;
 }();
 
-module.exports = Stackable;
+if (typeof window === 'undefined') {
+  module.exports = Stackable;
+}
