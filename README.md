@@ -28,8 +28,16 @@ bower install get-stackable --save
 
 Include Stackable file in your project
 
+In browser
+
 ```html
 <script src="dist/stackable.min.js"></script>
+```
+
+In NodeJs
+
+```html
+var stackable = require('stackable');
 ```
 
 ## Usage

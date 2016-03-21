@@ -10,7 +10,7 @@ var Stackable = function () {
 
     this._token = token;
     this._apiVersion = 'v1';
-    this._apiUrl = 'http://api.stackable.space';
+    this._apiUrl = 'https://api.stackable.space';
   }
 
   _createClass(Stackable, [{

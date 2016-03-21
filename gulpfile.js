@@ -17,7 +17,7 @@ gulp.task('js', function(){
         .pipe(gulp.dest('dist'))
 
         .pipe(rename({
-            suffix: "-min"
+            suffix: ".min"
         }))
         .pipe(uglify())
         .pipe(sourcemaps.write('./'))
