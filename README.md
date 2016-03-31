@@ -37,7 +37,7 @@ In browser
 In NodeJs
 
 ```html
-var stackable = require('stackable');
+var Stackable = require('stackable');
 ```
 
 ## Usage
