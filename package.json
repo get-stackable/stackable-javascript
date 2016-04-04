@@ -1,6 +1,6 @@
 {
   "name": "stackable",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "Official Stackable API Javascript library for getting data from stack",
   "browser": "dist/stackable-browsify.js",
   "main": "dist/stackable-node.js",
