@@ -30,7 +30,7 @@
         console.log(error, result);
     });
 
-    stackable.getContainerItems(dummyContainerId, function (error, result) {
+    stackable.getContainerItems(dummyContainerId, {'$limit': 2, '$skip': 2}, function (error, result) {
         console.log(error, result);
     });
 

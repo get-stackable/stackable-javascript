@@ -29,22 +29,37 @@ var Stackable = function () {
         }
     }, {
         key: 'getContainerItems',
-        value: function getContainerItems(containerId, callback) {
-            this._get('containers/' + containerId + '/items', function (err, res) {
+        value: function getContainerItems(containerId, query, callback) {
+            if (typeof callback === 'undefined') {
+                callback = query;
+                query = {};
+            }
+
+            this._get('containers/' + containerId + '/items', query, function (err, res) {
                 callback(err, res);
             });
         }
     }, {
         key: 'getAllItems',
-        value: function getAllItems(callback) {
-            this._get('items', function (err, res) {
+        value: function getAllItems(query, callback) {
+            if (typeof callback === 'undefined') {
+                callback = query;
+                query = {};
+            }
+
+            this._get('items', query, function (err, res) {
                 callback(err, res);
             });
         }
     }, {
         key: 'getItem',
-        value: function getItem(itemId, callback) {
-            this._get('items/' + itemId, function (err, res) {
+        value: function getItem(itemId, query, callback) {
+            if (typeof callback === 'undefined') {
+                callback = query;
+                query = {};
+            }
+
+            this._get('items/' + itemId, query, function (err, res) {
                 callback(err, res);
             });
         }
@@ -63,9 +78,16 @@ var Stackable = function () {
             });
         }
     }, {
+        key: '_queryString',
+        value: function _queryString(obj) {
+            return Object.keys(obj).map(function (key) {
+                return key + '=' + obj[key];
+            }).join('&');
+        }
+    }, {
         key: '_get',
-        value: function _get(path, callback) {
-            var endPoint = this._apiUrl + '/' + this._apiVersion + '/' + path + '?token=' + this._token;
+        value: function _get(path, query, callback) {
+            var endPoint = this._apiUrl + '/' + this._apiVersion + '/' + path + '?token=' + this._token + '&' + this._queryString(query);
 
             //is browser
             $.ajax({

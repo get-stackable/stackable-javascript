@@ -1,3 +1,5 @@
+'use strict';
+
 class Stackable {
     constructor(token) {
         this._token = token;
@@ -17,20 +19,35 @@ class Stackable {
         });
     }
 
-    getContainerItems(containerId, callback) {
-        this._get(`containers/${containerId}/items`, function(err, res) {
+    getContainerItems(containerId, query, callback) {
+        if (typeof callback === 'undefined') {
+            callback = query;
+            query = {};
+        }
+
+        this._get(`containers/${containerId}/items`, query, function(err, res) {
             callback(err, res);
         });
     }
 
-    getAllItems(callback) {
-        this._get('items', function(err, res) {
+    getAllItems(query, callback) {
+        if (typeof callback === 'undefined') {
+            callback = query;
+            query = {};
+        }
+
+        this._get('items', query, function(err, res) {
             callback(err, res);
         });
     }
 
-    getItem(itemId, callback) {
-        this._get(`items/${itemId}`, function(err, res) {
+    getItem(itemId, query, callback) {
+        if (typeof callback === 'undefined') {
+            callback = query;
+            query = {};
+        }
+
+        this._get(`items/${itemId}`, query, function(err, res) {
             callback(err, res);
         });
     }
@@ -47,8 +64,14 @@ class Stackable {
         });
     }
 
-    _get(path, callback) {
-        let endPoint = `${this._apiUrl}/${this._apiVersion}/${path}?token=${this._token}`;
+    _queryString(obj) {
+        return Object.keys(obj).map(function(key) {
+            return key + '=' + obj[key];
+        }).join('&');
+    }
+
+    _get(path, query, callback) {
+        let endPoint = `${this._apiUrl}/${this._apiVersion}/${path}?token=${this._token}&${this._queryString(query)}`;
 
         //is browser
         $.ajax({
