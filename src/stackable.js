@@ -73,7 +73,7 @@ class Stackable {
         }).join('&');
     }
 
-    _get(path, callback) {
+    _get(path, query, callback) {
         let endPoint = `${this._apiUrl}/${this._apiVersion}/${path}?token=${this._token}&${this._queryString(query)}`;
 
         fetch(endPoint)
