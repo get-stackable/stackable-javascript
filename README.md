@@ -10,8 +10,6 @@ Working examples are found in `examples` directory!
 - [AngularJs Example](examples/index-angular.html)
 - [ReactJs Example](examples/index-react.html)
 
-In browser `jQuery` is required.
-
 ## Install
 
 You can get it on npm
@@ -31,13 +29,15 @@ Include Stackable file in your project
 In browser
 
 ```html
-<script src="dist/stackable.min.js"></script>
+<script src="dist/stackable-bower.min.js"></script>
 ```
 
-In NodeJs
+browser requires jQuery
+
+In Node
 
 ```html
-var stackable = require('stackable');
+var Stackable = require('stackable');
 ```
 
 ## Usage

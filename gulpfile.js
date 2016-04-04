@@ -5,15 +5,33 @@ var eslint = require('gulp-eslint');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 
-gulp.task('js', function(){
-    return gulp.src(['src/*.js','!node_modules/**'])
+//gulp.task('js', function(){
+//    return gulp.src(['src/*.js','!node_modules/**'])
+//        .pipe(sourcemaps.init({ loadMaps: true }))
+//        .pipe(eslint())
+//        .pipe(eslint.format())
+//        .pipe(babel({
+//            presets: ['es2015']
+//        }))
+//        //.pipe(sourcemaps.write('.'))
+//        .pipe(gulp.dest('dist'))
+//
+//        .pipe(rename({
+//            suffix: ".min"
+//        }))
+//        .pipe(uglify())
+//        .pipe(sourcemaps.write('./'))
+//        .pipe(gulp.dest('dist'));
+//});
+
+gulp.task('bower', function(){
+    return gulp.src(['src/stackable-bower.js'])
         .pipe(sourcemaps.init({ loadMaps: true }))
         .pipe(eslint())
         .pipe(eslint.format())
         .pipe(babel({
             presets: ['es2015']
         }))
-        //.pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('dist'))
 
         .pipe(rename({
@@ -24,4 +42,15 @@ gulp.task('js', function(){
         .pipe(gulp.dest('dist'));
 });
 
-gulp.task('default', ['js'], function(){});
+gulp.task('node', function(){
+    return gulp.src(['src/stackable.js','src/stackable-node.js'])
+        .pipe(sourcemaps.init({ loadMaps: true }))
+        .pipe(eslint())
+        .pipe(eslint.format())
+        .pipe(babel({
+            presets: ['es2015']
+        }))
+        .pipe(gulp.dest('dist'));
+});
+
+gulp.task('default', ['bower', 'node'], function(){});

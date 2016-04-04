@@ -2,7 +2,8 @@
   "name": "stackable",
   "version": "1.3.0",
   "description": "Official Stackable API Javascript library for getting data from stack",
-  "main": "dist/stackable.min.js",
+  "browser": "dist/stackable-node.min.js",
+  "main": "dist/stackable-node.min.js",
   "scripts": {
     "build": "gulp"
   },
@@ -17,6 +18,10 @@
     "url": "https://github.com/get-stackable/stackable-javascript/issues"
   },
   "homepage": "https://github.com/get-stackable/stackable-javascript",
+  "dependencies": {
+    "es6-promise": "^3.1.2",
+    "isomorphic-fetch": "^2.2.1"
+  },
   "devDependencies": {
     "babel-eslint": "^5.0.0",
     "babel-preset-es2015": "^6.6.0",
@@ -27,8 +32,5 @@
     "gulp-rename": "^1.2.2",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.5.3"
-  },
-  "dependencies": {
-    "node-fetch": "^1.3.3"
   }
 }

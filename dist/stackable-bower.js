@@ -1,15 +1,8 @@
 'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-require('es6-promise').polyfill();
-require('isomorphic-fetch');
 
 var Stackable = function () {
     function Stackable(token) {
@@ -74,16 +67,17 @@ var Stackable = function () {
         value: function _get(path, callback) {
             var endPoint = this._apiUrl + '/' + this._apiVersion + '/' + path + '?token=' + this._token;
 
-            fetch(endPoint).then(function (response) {
-                if (response.status >= 400) {
-                    var err = {
-                        'message': 'There was an error with this request.'
-                    };
-                    return callback(err, false);
+            //is browser
+            $.ajax({
+                url: endPoint,
+                type: 'GET',
+                context: document.body,
+                success: function success(response) {
+                    callback(false, response);
+                },
+                error: function error(err) {
+                    callback(err, false);
                 }
-                return response.json();
-            }).then(function (response) {
-                callback(false, response);
             });
         }
     }, {
@@ -103,22 +97,18 @@ var Stackable = function () {
                 endPoint = endPoint + '&' + paramsStr;
             }
 
-            fetch(endPoint, {
-                method: 'POST',
-                headers: {
-                    'Content-type': 'application/json'
+            //is browser
+            $.ajax({
+                url: endPoint,
+                type: 'POST',
+                context: document.body,
+                data: data,
+                success: function success(response) {
+                    callback(false, response);
                 },
-                body: data
-            }).then(function (response) {
-                if (response.status >= 400) {
-                    var err = {
-                        'message': 'There was an error with this request.'
-                    };
-                    return callback(err, false);
+                error: function error(err) {
+                    callback(err, false);
                 }
-                return response.json();
-            }).then(function (response) {
-                return callback(false, response);
             });
         }
     }, {
@@ -126,22 +116,18 @@ var Stackable = function () {
         value: function _put(path, data, callback) {
             var endPoint = this._apiUrl + '/' + this._apiVersion + '/' + path + '?token=' + this._token;
 
-            fetch(endPoint, {
-                method: 'PUT',
-                headers: {
-                    'Content-type': 'application/json'
+            //is browser
+            $.ajax({
+                url: endPoint,
+                type: 'PUT',
+                context: document.body,
+                data: data,
+                success: function success(response) {
+                    callback(false, response);
                 },
-                body: data
-            }).then(function (response) {
-                if (response.status >= 400) {
-                    var err = {
-                        'message': 'There was an error with this request.'
-                    };
-                    return callback(err, false);
+                error: function error(err) {
+                    callback(err, false);
                 }
-                return response.json();
-            }).then(function (response) {
-                return callback(false, response);
             });
         }
     }]);
@@ -149,11 +135,4 @@ var Stackable = function () {
     return Stackable;
 }();
 
-exports.default = Stackable;
-//if (typeof window === 'undefined') {
-//    //node
-//    module.exports = Stackable;
-//} else {
-//    //browser
-//    window.Stackable = Stackable;
-//}
+window.Stackable = Stackable;
