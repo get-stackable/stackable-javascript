@@ -2,8 +2,8 @@
   "name": "stackable",
   "version": "1.4.0",
   "description": "Official Stackable API Javascript library for getting data from stack",
-  "browser": "dist/stackable-node.min.js",
-  "main": "dist/stackable-node.min.js",
+  "browser": "dist/stackable-browsify.js",
+  "main": "dist/stackable-node.js",
   "scripts": {
     "build": "gulp"
   },
