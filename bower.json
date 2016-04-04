@@ -1,6 +1,6 @@
 {
   "name": "get-stackable",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Official Stackable API Javascript library for getting data from stack",
   "main": "dist/stackable-bower.min.js",
   "authors": [
