@@ -93,8 +93,12 @@ var Stackable = function () {
         }
     }, {
         key: '_get',
-        value: function _get(path, callback) {
+        value: function _get(path, query, callback) {
             var endPoint = this._apiUrl + '/' + this._apiVersion + '/' + path + '?token=' + this._token + '&' + this._queryString(query);
+
+            if (typeof callback == 'undefined') {
+                callback = query;
+            }
 
             fetch(endPoint).then(function (response) {
                 if (response.status >= 400) {

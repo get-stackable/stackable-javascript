@@ -76,6 +76,10 @@ class Stackable {
     _get(path, query, callback) {
         let endPoint = `${this._apiUrl}/${this._apiVersion}/${path}?token=${this._token}&${this._queryString(query)}`;
 
+        if (typeof callback == 'undefined') {
+            callback = query;
+        }
+
         fetch(endPoint)
             .then(function (response) {
                 if (response.status >= 400) {
